@@ -1,1 +1,1642 @@
-<h1>Welcome to Dr. D. R. Somwanshi Pages</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dr. D. R. Somwanshi | Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* ===== CSS Reset & Base ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a2a6c;
+            --secondary: #2d3b8f;
+            --accent: #4a6cf7;
+            --accent-light: #6b8cff;
+            --gradient: linear-gradient(135deg, #1a2a6c 0%, #2d3b8f 40%, #4a6cf7 100%);
+            --text-dark: #1e1e2f;
+            --text-light: #f0f4ff;
+            --bg-light: #f8faff;
+            --bg-card: #ffffff;
+            --shadow: 0 10px 40px rgba(26, 42, 108, 0.12);
+            --shadow-hover: 0 20px 60px rgba(26, 42, 108, 0.20);
+            --radius: 20px;
+            --radius-sm: 10px;
+            --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== Scrollbar ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+
+        /* ===== Buttons ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            letter-spacing: 0.3px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(74, 108, 247, 0.35);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 40px rgba(74, 108, 247, 0.50);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.10);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-weight: 800;
+            font-size: 1.4rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .nav-logo span {
+            font-weight: 300;
+            color: var(--text-dark);
+            -webkit-text-fill-color: var(--text-dark);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            position: relative;
+            transition: var(--transition);
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background: var(--gradient);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            background: none;
+            border: none;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: var(--bg-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(74, 108, 247, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(26, 42, 108, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+        .hero-content h1 .highlight {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content .title-role {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #4a4a6a;
+            max-width: 520px;
+            margin-bottom: 28px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(26, 42, 108, 0.08);
+        }
+        .hero-stats .stat {
+            text-align: center;
+        }
+        .hero-stats .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-stats .stat-label {
+            font-size: 0.85rem;
+            color: #6a6a8a;
+            font-weight: 500;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image .avatar {
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7rem;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 30px 80px rgba(74, 108, 247, 0.25);
+            border: 6px solid rgba(255, 255, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-image .avatar .ring {
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            animation: spin 20s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: #fff;
+            padding: 10px 18px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: float 4s ease-in-out infinite;
+            z-index: 5;
+        }
+        .floating-badge i {
+            color: var(--accent);
+        }
+
+        .floating-badge.b1 {
+            top: 10%;
+            right: -10%;
+            animation-delay: 0s;
+        }
+        .floating-badge.b2 {
+            bottom: 10%;
+            left: -10%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-14px);
+            }
+        }
+
+        /* ===== Section Common ===== */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .section-header .tag {
+            display: inline-block;
+            background: rgba(74, 108, 247, 0.10);
+            color: var(--accent);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .section-header h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .section-header h2 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-header p {
+            color: #5a5a7a;
+            max-width: 560px;
+            margin: 8px auto 0;
+            font-size: 1.05rem;
+        }
+
+        /* ===== Summary ===== */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .summary-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .summary-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+
+        .summary-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .summary-card h3 i {
+            color: var(--accent);
+        }
+
+        .summary-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .summary-card ul li {
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.98rem;
+            color: #3a3a5a;
+        }
+        .summary-card ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .summary-card .highlight-text {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .quick-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .quick-info .info-item {
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            padding: 18px 24px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: var(--transition);
+        }
+        .quick-info .info-item:hover {
+            transform: translateX(6px);
+            box-shadow: var(--shadow-hover);
+        }
+        .quick-info .info-item i {
+            width: 40px;
+            height: 40px;
+            background: rgba(74, 108, 247, 0.10);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        .quick-info .info-item .label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #6a6a8a;
+        }
+        .quick-info .info-item .value {
+            font-weight: 500;
+        }
+
+        /* ===== Experience ===== */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gradient);
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 20px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -28px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+
+        .timeline-item .company {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--primary);
+        }
+        .timeline-item .role {
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .timeline-item .period {
+            font-size: 0.85rem;
+            color: #6a6a8a;
+            font-weight: 500;
+            margin: 2px 0 8px;
+        }
+        .timeline-item .desc {
+            color: #3a3a5a;
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+        .timeline-item .desc ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 6px;
+        }
+        .timeline-item .desc ul li {
+            padding-left: 20px;
+            position: relative;
+            font-size: 0.92rem;
+            margin-bottom: 4px;
+        }
+        .timeline-item .desc ul li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* ===== Skills ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .skill-category {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 28px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .skill-category:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+        .skill-category h4 {
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .skill-category h4 i {
+            color: var(--accent);
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-tags span {
+            background: rgba(74, 108, 247, 0.08);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+        .skill-tags span:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: scale(1.04);
+        }
+
+        /* ===== Education ===== */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .edu-item {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 30px 32px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 5px solid var(--accent);
+        }
+        .edu-item:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+        .edu-item .degree {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+        .edu-item .institute {
+            font-weight: 500;
+            color: var(--accent);
+        }
+        .edu-item .year {
+            font-size: 0.85rem;
+            color: #6a6a8a;
+            font-weight: 500;
+        }
+        .edu-item .grade {
+            font-size: 0.9rem;
+            color: #3a3a5a;
+            margin-top: 4px;
+        }
+
+        /* ===== Publications ===== */
+        .pub-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .pub-item {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 24px 28px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+        .pub-item:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+            border-bottom-color: var(--accent);
+        }
+        .pub-item .pub-title {
+            font-weight: 600;
+            font-size: 0.98rem;
+            color: var(--primary);
+        }
+        .pub-item .pub-authors {
+            font-size: 0.88rem;
+            color: #4a4a6a;
+            margin: 4px 0;
+        }
+        .pub-item .pub-journal {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        .pub-item .pub-link {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .pub-item .pub-link:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+        .pub-item .pub-link i {
+            margin-left: 4px;
+        }
+
+        /* ===== Projects ===== */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .project-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 28px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        .project-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-6px);
+        }
+        .project-card .project-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .project-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .project-card .tech {
+            font-size: 0.82rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .project-card p {
+            font-size: 0.92rem;
+            color: #3a3a5a;
+            margin-bottom: 12px;
+        }
+        .project-card .project-link {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .project-card .project-link:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+        .project-card .project-link i {
+            margin-left: 4px;
+        }
+
+        /* ===== Certifications ===== */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .cert-item {
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            padding: 20px 24px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(74, 108, 247, 0.06);
+        }
+        .cert-item:hover {
+            box-shadow: var(--shadow-hover);
+            transform: scale(1.03);
+        }
+        .cert-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .cert-item .cert-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .cert-item .cert-org {
+            font-size: 0.85rem;
+            color: #6a6a8a;
+        }
+        .cert-item .cert-score {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-top: 4px;
+        }
+
+        /* ===== Contact ===== */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-info .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--bg-card);
+            padding: 18px 24px;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .contact-info .contact-item:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateX(6px);
+        }
+        .contact-info .contact-item i {
+            width: 44px;
+            height: 44px;
+            background: rgba(74, 108, 247, 0.10);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        .contact-info .contact-item .label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #6a6a8a;
+        }
+        .contact-info .contact-item .value {
+            font-weight: 500;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        .social-links a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            padding: 10px 22px;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .social-links a:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            color: var(--accent);
+        }
+        .social-links a i {
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: var(--primary);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 40px 0 24px;
+            margin-top: 20px;
+        }
+        footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        footer .footer-content p {
+            font-size: 0.95rem;
+        }
+        footer .footer-content .heart {
+            color: #ff6b6b;
+        }
+        footer .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+        footer .footer-links a {
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        footer .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-image .avatar {
+                width: 240px;
+                height: 240px;
+                font-size: 5rem;
+            }
+            .floating-badge {
+                display: none;
+            }
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+            .edu-grid {
+                grid-template-columns: 1fr;
+            }
+            .pub-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 320px;
+                height: 100vh;
+                background: #fff;
+                flex-direction: column;
+                padding: 80px 32px 32px;
+                box-shadow: -10px 0 40px rgba(0, 0, 0, 0.10);
+                transition: var(--transition);
+                gap: 20px;
+                align-items: flex-start;
+            }
+            .nav-links.open {
+                right: 0;
+            }
+            .nav-toggle {
+                display: block;
+                z-index: 1001;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+            .hero-stats {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            .hero-image .avatar {
+                width: 180px;
+                height: 180px;
+                font-size: 3.6rem;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            section {
+                padding: 50px 0;
+            }
+            .summary-card {
+                padding: 24px;
+            }
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .cert-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            footer .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-logo {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* ===== Utility ===== */
+        .text-gradient {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .mt-1 {
+            margin-top: 8px;
+        }
+        .mt-2 {
+            margin-top: 16px;
+        }
+        .mb-1 {
+            margin-bottom: 8px;
+        }
+        .mb-2 {
+            margin-bottom: 16px;
+        }
+
+        /* ===== Responsive tweaks for publication ===== */
+        @media (max-width: 480px) {
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-stats .stat-number {
+                font-size: 1.5rem;
+            }
+            .hero-content .title-role {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">Dr. D. R. <span>Somwanshi</span></a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#summary">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#publications">Research</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="title-role"><i class="fas fa-graduation-cap" style="margin-right:8px;"></i> Ph.D. · UGC-NET · Vice Principal</div>
+                <h1>Dr. D. R. <span class="highlight">Somwanshi</span></h1>
+                <p>
+                    <strong>19+ years</strong> in teaching · <strong>7+ years</strong> in Web & App Development ·
+                    <strong>9+ years</strong> research experience. Passionate about mentoring, curriculum design,
+                    and building impactful tech solutions.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope" style="margin-right:8px;"></i> Get in Touch</a>
+                    <a href="#publications" class="btn btn-outline"><i class="fas fa-book-open" style="margin-right:8px;"></i> Research</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">19+</div>
+                        <div class="stat-label">Years Teaching</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">14+</div>
+                        <div class="stat-label">Publications</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Students Trained</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">13+</div>
+                        <div class="stat-label">Live Projects</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="avatar">
+                    <span>DRS</span>
+                    <div class="ring"></div>
+                </div>
+                <!-- floating badges -->
+                <div class="floating-badge b1"><i class="fas fa-code"></i> Full Stack</div>
+                <div class="floating-badge b2"><i class="fas fa-robot"></i> AI/ML</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SUMMARY / ABOUT ===== -->
+    <section id="summary" style="padding-top:40px;">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">About Me</span>
+                <h2>Academic &amp; <span>Professional</span> Profile</h2>
+                <p>Dedicated educator, researcher, and technologist with a passion for shaping future minds.</p>
+            </div>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h3><i class="fas fa-user-graduate"></i> Summary</h3>
+                    <ul>
+                        <li><span class="highlight-text">19+ years</span> teaching experience in Computer Science for UG &amp; PG students.</li>
+                        <li><span class="highlight-text">3+ years</span> as Head of Department · <span class="highlight-text">1+ year</span> as Vice Principal.</li>
+                        <li><span class="highlight-text">7+ years</span> in Web, Desktop &amp; Android App Development, Project Execution.</li>
+                        <li><span class="highlight-text">3+ years</span> as Technical Director &amp; Project Leader at IT Company.</li>
+                        <li><span class="highlight-text">9+ years</span> research experience · <span class="highlight-text">14+</span> research papers in Scopus, Web of Science &amp; Springer.</li>
+                        <li><span class="highlight-text">Wipro Certified Faculty (WCF)</span> – trained <span class="highlight-text">200+</span> students for placement.</li>
+                        <li><span class="highlight-text">13+</span> training programmes for faculty &amp; <span class="highlight-text">15+</span> workshops for students.</li>
+                        <li>Proficient in C#.NET, ASP.NET Core, Python, PHP, Java, Spring MVC, Android (Kotlin), and more.</li>
+                    </ul>
+                </div>
+                <div class="quick-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div><div class="label">Email</div><div class="value">somwanshi1234@gmail.com</div></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div><div class="label">Phone</div><div class="value">+91 8329449098</div></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><div class="label">Location</div><div class="value">Latur, Maharashtra, India</div></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div><div class="label">Date of Birth</div><div class="value">1st May 1979</div></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-university"></i>
+                        <div><div class="label">Current Role</div><div class="value">Vice Principal &amp; Assistant Professor, COCSIT Latur</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" style="background:#f2f6ff;">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Career Path</span>
+                <h2>Work <span>Experience</span></h2>
+                <p>A journey of teaching, leadership, and industry innovation.</p>
+            </div>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <div class="company">College of Computer Science &amp; IT (COCSIT), Latur</div>
+                    <div class="role">Vice Principal &amp; Assistant Professor</div>
+                    <div class="period">July 2024 – Present</div>
+                    <div class="desc">Leading academic administration, faculty mentorship, and curriculum development.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="company">COCSSYS InfoTech Private Limited (CIPL), Pune</div>
+                    <div class="role">Technical Director &amp; Project Leader</div>
+                    <div class="period">Nov 2018 – May 2021</div>
+                    <div class="desc">
+                        Designed and delivered <strong>13 live projects</strong> including Web, Mobile, Windows apps and websites.
+                        <ul>
+                            <li>EduEra School Management (Web + Mobile)</li>
+                            <li>Uddhan – Video Lecture &amp; Exam App</li>
+                            <li>Online Examination System</li>
+                            <li>Board Examiners Information System</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="company">COCSIT, Latur</div>
+                    <div class="role">Assistant Professor</div>
+                    <div class="period">Nov 2018 – June 2024</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="company">COCSIT, Latur</div>
+                    <div class="role">Head of Department – Computer Application</div>
+                    <div class="period">June 2016 – Oct 2018</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="company">COCSIT, Latur</div>
+                    <div class="role">Lecturer</div>
+                    <div class="period">July 2007 – May 2016</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="company">Rajarshi Shahu College, Latur</div>
+                    <div class="role">Lecturer</div>
+                    <div class="period">June 2005 – July 2007</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="company">Aptech Computer Education, Latur</div>
+                    <div class="role">Trainer, Head &amp; System Administrator</div>
+                    <div class="period">May 2004 – July 2006</div>
+                    <div class="desc">Faculty for VB.NET, ASP.NET, SQL Server, C, C++, VC++.</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Academic</span>
+                <h2>Educational <span>Qualifications</span></h2>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-item">
+                    <div class="degree">Ph.D. in Computer Science</div>
+                    <div class="institute">SRTM University, Nanded</div>
+                    <div class="year">Feb 2024</div>
+                    <div class="grade">Thesis: "Development of Secure and Verifiable Color Visual Cryptography Scheme"</div>
+                </div>
+                <div class="edu-item">
+                    <div class="degree">UGC-NET</div>
+                    <div class="institute">National Eligibility Test</div>
+                    <div class="year">Dec 2024</div>
+                    <div class="grade">Qualified</div>
+                </div>
+                <div class="edu-item">
+                    <div class="degree">M.Phil. in Computer Science</div>
+                    <div class="institute">SRTM University, Nanded</div>
+                    <div class="year">May 2017</div>
+                    <div class="grade">First Class · 7.8 CGPA</div>
+                </div>
+                <div class="edu-item">
+                    <div class="degree">M.Sc. Computer Science</div>
+                    <div class="institute">Rajarshi Shahu College, Latur</div>
+                    <div class="year">May 2005</div>
+                    <div class="grade">First Class · 68.54%</div>
+                </div>
+                <div class="edu-item">
+                    <div class="degree">B.C.S. (Bachelor of Computer Science)</div>
+                    <div class="institute">Rajarshi Shahu College, Latur</div>
+                    <div class="year">May 2003</div>
+                    <div class="grade">First Class with Distinction · 69.54%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" style="background:#f2f6ff;">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Expertise</span>
+                <h2>Technical <span>Skills</span></h2>
+                <p>Languages, frameworks, and tools I work with.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4><i class="fas fa-code"></i> Languages</h4>
+                    <div class="skill-tags">
+                        <span>Python</span><span>Java</span><span>C#</span><span>C</span><span>C++</span>
+                        <span>JavaScript</span><span>PHP</span><span>Kotlin</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-layer-group"></i> Web &amp; Frameworks</h4>
+                    <div class="skill-tags">
+                        <span>ASP.NET Core</span><span>Spring MVC</span><span>J2EE</span><span>Servlet</span>
+                        <span>JSP</span><span>Struts</span><span>Hibernate</span><span>React JS</span>
+                        <span>HTML5</span><span>CSS3</span><span>jQuery</span><span>AJAX</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-database"></i> Databases</h4>
+                    <div class="skill-tags">
+                        <span>SQL Server</span><span>MySQL</span><span>Oracle SQL</span>
+                        <span>MongoDB</span><span>NoSQL</span><span>MS Access</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4><i class="fas fa-mobile-alt"></i> Mobile &amp; DevOps</h4>
+                    <div class="skill-tags">
+                        <span>Android (Kotlin/Java)</span><span>Git</span><span>Maven</span>
+                        <span>WordPress</span><span>Joomla</span><span>PowerBI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PUBLICATIONS ===== -->
+    <section id="publications">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Research</span>
+                <h2>Publications <span>&amp; Research</span></h2>
+                <p>14+ research papers in Scopus, Web of Science, Springer conferences &amp; journals.</p>
+            </div>
+            <div class="pub-grid">
+                <div class="pub-item">
+                    <div class="pub-title">Half-Tone Visual Cryptography Scheme for RGB Color Images</div>
+                    <div class="pub-authors">D. R. Somwanshi, Vikas T. Humbe</div>
+                    <div class="pub-journal">Indian Journal of Science and Technology, 16(5), 357-366</div>
+                    <a href="https://doi.org/10.17485/IJST/v16i5.2038" target="_blank" class="pub-link">DOI <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-title">A Contrast Optimal Visual Cryptography Scheme for Half-Tone Images</div>
+                    <div class="pub-authors">D. R. Somwanshi, V. T. Humbe</div>
+                    <div class="pub-journal">Springer CCIS, vol 1381</div>
+                    <a href="https://doi.org/10.1007/978-981-16-0493-5_14" target="_blank" class="pub-link">DOI <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-title">A Secure and Verifiable Color Visual Cryptography Scheme with LSB Based Image Steganography</div>
+                    <div class="pub-authors">D. R. Somwanshi, Vikas T. Humbe</div>
+                    <div class="pub-journal">IJATCSE, ISSN 2278-3091</div>
+                    <a href="http://www.warse.org/IJATCSE/static/pdf/file/ijatcse031042021.pdf" target="_blank" class="pub-link">View <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-title">An Optimal (2, 2) Visual Cryptography Scheme for Information Security</div>
+                    <div class="pub-authors">D. R. Somwanshi, Vikas T. Humbe</div>
+                    <div class="pub-journal">Springer, ACVAIT 2022</div>
+                    <a href="https://doi.org/10.2991/978-94-6463-196-8_15" target="_blank" class="pub-link">DOI <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-title">Detection and Classification of Non-proliferative Diabetic Retinopathy Using Retinal Images</div>
+                    <div class="pub-authors">D. B. Mule, S. S. Chowhan, D. R. Somwanshi</div>
+                    <div class="pub-journal">Springer, RTIP2R 2018</div>
+                    <a href="https://doi.org/10.1007/978-981-13-9184-2_28" target="_blank" class="pub-link">DOI <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-title">Meaningful Color Share Generation for (n, n) Visual Secret Sharing Scheme Using LSB Steganography</div>
+                    <div class="pub-authors">D. R. Somwanshi, Vikas T. Humbe</div>
+                    <div class="pub-journal">IRJSE, Special Issue A14, June 2024</div>
+                    <a href="https://doi.org/10.5281/zenodo.12702224" target="_blank" class="pub-link">DOI <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:28px;">
+                <span style="background:rgba(74,108,247,0.08);padding:8px 24px;border-radius:50px;font-weight:500;color:var(--accent);">
+                    <i class="fas fa-quote-right" style="margin-right:8px;"></i> 9+ Google Citation Index
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" style="background:#f2f6ff;">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Portfolio</span>
+                <h2>Live <span>Projects</span></h2>
+                <p>Web, mobile, and desktop applications developed and deployed.</p>
+            </div>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-school"></i></div>
+                    <h4>EduEra – School Management</h4>
+                    <div class="tech">Android · PHP · MySQL</div>
+                    <p>Complete school management system with parent communication and exam modules.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.cocssys.schoolepoch" target="_blank" class="project-link">View on Play Store <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-video"></i></div>
+                    <h4>Uddhan – Video Lectures &amp; Exams</h4>
+                    <div class="tech">Android · Java · PHP · MySQL</div>
+                    <p>Mobile app for video lectures and online examinations.</p>
+                    <a href="https://play.google.com/store/apps/details?id=com.cocssys.royaledu" target="_blank" class="project-link">View on Play Store <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-laptop"></i></div>
+                    <h4>Online Examination System</h4>
+                    <div class="tech">PHP · MySQL · HTML · CSS · JS</div>
+                    <p>Web-based platform for conducting online exams with instant results.</p>
+                    <a href="http://www.onlineexam.cocsit.org.in/" target="_blank" class="project-link">View Live <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-university"></i></div>
+                    <h4>SSC/HSC Board – Examiners Info System</h4>
+                    <div class="tech">PHP · MySQL · HTML · CSS · JS</div>
+                    <p>Information system for board examiners and moderators.</p>
+                    <a href="http://cocssys.com/laturboard" target="_blank" class="project-link">View Live <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-globe"></i></div>
+                    <h4>COCSIT College Website</h4>
+                    <div class="tech">PHP · MySQL · HTML · CSS · JS</div>
+                    <p>Official college website with admission, feedback, and information modules.</p>
+                    <a href="http://cocsit.org.in" target="_blank" class="project-link">Visit <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h4>Statperson Consultancy</h4>
+                    <div class="tech">PHP · MySQL · HTML · CSS · JS</div>
+                    <p>Statistical consultancy website with journal and solution portals.</p>
+                    <a href="http://www.statperson.com/" target="_blank" class="project-link">Visit <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:32px;">
+                <a href="https://github.com/drsomwanshi" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-github" style="margin-right:8px;"></i> View More on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Credentials</span>
+                <h2>Certifications <span>&amp; Training</span></h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-item">
+                    <i class="fas fa-certificate"></i>
+                    <div class="cert-name">Wipro Certified Faculty (WCF)</div>
+                    <div class="cert-org">J2EE Technology · 2020</div>
+                </div>
+                <div class="cert-item">
+                    <i class="fab fa-java"></i>
+                    <div class="cert-name">Programming in Java</div>
+                    <div class="cert-org">NPTEL · Score 89% · Dec 2020</div>
+                </div>
+                <div class="cert-item">
+                    <i class="fab fa-python"></i>
+                    <div class="cert-name">Python for Data Science</div>
+                    <div class="cert-org">NPTEL · Score 88% · Dec 2020</div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-robot"></i>
+                    <div class="cert-name">The Joy of Computing using Python</div>
+                    <div class="cert-org">NPTEL · Score 81% · April 2022</div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-link"></i>
+                    <div class="cert-name">Blockchain and Its Applications</div>
+                    <div class="cert-org">NPTEL · Score 66% · April 2022</div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-cloud"></i>
+                    <div class="cert-name">Cloud &amp; Data Center FDP</div>
+                    <div class="cert-org">Wipro Technologies, Chennai · 2025</div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-brain"></i>
+                    <div class="cert-name">AI &amp; Machine Learning</div>
+                    <div class="cert-org">Wipro TalentNext · July 2022</div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <div class="cert-name">Data Analytics with PowerBI</div>
+                    <div class="cert-org">COCSIT · Aug 2023</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" style="background:#f2f6ff;">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">Connect</span>
+                <h2>Get In <span>Touch</span></h2>
+                <p>I'm always open to research collaborations, speaking engagements, and academic discussions.</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div><div class="label">Email</div><div class="value">somwanshi1234@gmail.com</div></div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div><div class="label">Official Email</div><div class="value">drsomwanshi@cocsit.org.in</div></div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div><div class="label">Phone</div><div class="value">+91 8329449098</div></div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><div class="label">Address</div><div class="value">COCSIT, Ambajogai Road, Latur – 413531, Maharashtra, India</div></div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/drsomwanshi" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://www.youtube.com/@drsomwanshi" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
+                        <a href="https://scholar.google.com/" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                    </div>
+                </div>
+                <div style="background:#fff;border-radius:var(--radius);padding:32px 36px;box-shadow:var(--shadow);">
+                    <h4 style="font-size:1.2rem;margin-bottom:16px;color:var(--primary);"><i class="fas fa-paper-plane" style="color:var(--accent);margin-right:10px;"></i> Quick Message</h4>
+                    <form action="mailto:somwanshi1234@gmail.com" method="post" enctype="text/plain">
+                        <div style="margin-bottom:16px;">
+                            <label style="display:block;font-weight:600;font-size:0.9rem;margin-bottom:4px;">Your Name</label>
+                            <input type="text" name="name" placeholder="Enter your name" style="width:100%;padding:12px 16px;border:2px solid #e8ecf4;border-radius:var(--radius-sm);font-size:1rem;outline:none;transition:var(--transition);">
+                        </div>
+                        <div style="margin-bottom:16px;">
+                            <label style="display:block;font-weight:600;font-size:0.9rem;margin-bottom:4px;">Your Email</label>
+                            <input type="email" name="email" placeholder="Enter your email" style="width:100%;padding:12px 16px;border:2px solid #e8ecf4;border-radius:var(--radius-sm);font-size:1rem;outline:none;transition:var(--transition);">
+                        </div>
+                        <div style="margin-bottom:20px;">
+                            <label style="display:block;font-weight:600;font-size:0.9rem;margin-bottom:4px;">Message</label>
+                            <textarea name="message" rows="4" placeholder="Write your message..." style="width:100%;padding:12px 16px;border:2px solid #e8ecf4;border-radius:var(--radius-sm);font-size:1rem;outline:none;transition:var(--transition);resize:vertical;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;"><i class="fas fa-paper-plane" style="margin-right:8px;"></i> Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2026 <strong>Dr. D. R. Somwanshi</strong>. Built with <span class="heart">❤</span> and passion for education.</p>
+            <div class="footer-links">
+                <a href="#hero">Home</a>
+                <a href="#summary">About</a>
+                <a href="#publications">Research</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ---- Mobile Nav Toggle ----
+        const toggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            const icon = toggle.querySelector('i');
+            if (navLinks.classList.contains('open')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+
+        // Close nav on link click (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                const icon = toggle.querySelector('i');
+                icon.className = 'fas fa-bars';
+            });
+        });
+
+        // ---- Navbar scroll effect ----
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ---- Active link highlight on scroll ----
+        const sections = document.querySelectorAll('section[id]');
+        const navLinksAll = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinksAll.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ---- Smooth reveal on scroll (simple) ----
+        const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .edu-item, .pub-item, .project-card, .skill-category, .cert-item, .summary-card, .quick-info .info-item, .contact-item')
+            .forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+
+        // Also observe hero stats
+        document.querySelectorAll('.hero-stats .stat').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s';
+            observer.observe(el);
+        });
+
+        // Trigger initial check for elements in view
+        setTimeout(() => {
+            document.querySelectorAll('.timeline-item, .edu-item, .pub-item, .project-card, .skill-category, .cert-item, .summary-card, .quick-info .info-item, .contact-item, .hero-stats .stat')
+                .forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }
+                });
+        }, 100);
+    </script>
+
+</body>
+</html>
