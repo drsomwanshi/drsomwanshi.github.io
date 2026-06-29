@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dr. D. R. Somwanshi | Portfolio</title>
 
     <!-- Google Fonts -->
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        /* ===== CSS Reset & Base ===== */
+        /* ===== RESET & VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -61,7 +61,7 @@
             padding: 0 24px;
         }
 
-        /* ===== Scrollbar ===== */
+        /* ===== SCROLLBAR ===== */
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -76,7 +76,7 @@
             background: var(--secondary);
         }
 
-        /* ===== Buttons ===== */
+        /* ===== BUTTONS ===== */
         .btn {
             display: inline-block;
             padding: 14px 36px;
@@ -296,6 +296,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
         .hero-image .avatar {
@@ -366,7 +367,7 @@
             }
         }
 
-        /* ===== Section Common ===== */
+        /* ===== SECTION COMMON ===== */
         section {
             padding: 80px 0;
         }
@@ -404,7 +405,7 @@
             font-size: 1.05rem;
         }
 
-        /* ===== Summary ===== */
+        /* ===== SUMMARY ===== */
         .summary-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -498,7 +499,7 @@
             font-weight: 500;
         }
 
-        /* ===== Experience ===== */
+        /* ===== EXPERIENCE TIMELINE ===== */
         .timeline {
             position: relative;
             padding-left: 40px;
@@ -571,7 +572,7 @@
             font-weight: 700;
         }
 
-        /* ===== Skills ===== */
+        /* ===== SKILLS ===== */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -619,7 +620,7 @@
             transform: scale(1.04);
         }
 
-        /* ===== Education ===== */
+        /* ===== EDUCATION ===== */
         .edu-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -657,7 +658,7 @@
             margin-top: 4px;
         }
 
-        /* ===== Publications ===== */
+        /* ===== PUBLICATIONS ===== */
         .pub-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -707,7 +708,7 @@
             margin-left: 4px;
         }
 
-        /* ===== Projects ===== */
+        /* ===== PROJECTS ===== */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -761,7 +762,7 @@
             margin-left: 4px;
         }
 
-        /* ===== Certifications ===== */
+        /* ===== CERTIFICATIONS ===== */
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -800,7 +801,7 @@
             margin-top: 4px;
         }
 
-        /* ===== Contact ===== */
+        /* ===== CONTACT ===== */
         .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -875,7 +876,7 @@
             color: var(--accent);
         }
 
-        /* ===== Footer ===== */
+        /* ===== FOOTER ===== */
         footer {
             background: var(--primary);
             color: rgba(255, 255, 255, 0.8);
@@ -907,7 +908,7 @@
             color: #fff;
         }
 
-        /* ===== Responsive ===== */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .hero-grid {
                 grid-template-columns: 1fr;
@@ -1010,7 +1011,19 @@
             }
         }
 
-        /* ===== Utility ===== */
+        @media (max-width: 480px) {
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-stats .stat-number {
+                font-size: 1.5rem;
+            }
+            .hero-content .title-role {
+                font-size: 1rem;
+            }
+        }
+
+        /* ===== UTILITY ===== */
         .text-gradient {
             background: var(--gradient);
             -webkit-background-clip: text;
@@ -1027,19 +1040,6 @@
         }
         .mb-2 {
             margin-bottom: 16px;
-        }
-
-        /* ===== Responsive tweaks for publication ===== */
-        @media (max-width: 480px) {
-            .cert-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero-stats .stat-number {
-                font-size: 1.5rem;
-            }
-            .hero-content .title-role {
-                font-size: 1rem;
-            }
         }
     </style>
 </head>
@@ -1069,12 +1069,12 @@
     <section class="hero" id="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <div class="title-role"><i class="fas fa-graduation-cap" style="margin-right:8px;"></i> Ph.D. · UGC-NET · Vice Principal</div>
+                <div class="title-role"><i class="fas fa-graduation-cap" style="margin-right:8px;"></i> Ph.D. · UGC-NET · Associate Professor</div>
                 <h1>Dr. D. R. <span class="highlight">Somwanshi</span></h1>
                 <p>
-                    <strong>19+ years</strong> in teaching · <strong>7+ years</strong> in Web & App Development ·
-                    <strong>9+ years</strong> research experience. Passionate about mentoring, curriculum design,
-                    and building impactful tech solutions.
+                    <strong>19+ years</strong> in teaching · <strong>7+ years</strong> in Web &amp; App Development ·
+                    <strong>9+ years</strong> research experience. Currently serving as Associate Professor at JSPM University, Pune.
+                    Passionate about mentoring, curriculum design, and building impactful tech solutions.
                 </p>
                 <div class="hero-buttons">
                     <a href="#contact" class="btn btn-primary"><i class="fas fa-envelope" style="margin-right:8px;"></i> Get in Touch</a>
@@ -1086,7 +1086,7 @@
                         <div class="stat-label">Years Teaching</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">14+</div>
+                        <div class="stat-number">15+</div>
                         <div class="stat-label">Publications</div>
                     </div>
                     <div class="stat">
@@ -1111,7 +1111,7 @@
         </div>
     </section>
 
-    <!-- ===== SUMMARY / ABOUT ===== -->
+    <!-- ===== SUMMARY ===== -->
     <section id="summary" style="padding-top:40px;">
         <div class="container">
             <div class="section-header">
@@ -1124,19 +1124,24 @@
                     <h3><i class="fas fa-user-graduate"></i> Summary</h3>
                     <ul>
                         <li><span class="highlight-text">19+ years</span> teaching experience in Computer Science for UG &amp; PG students.</li>
-                        <li><span class="highlight-text">3+ years</span> as Head of Department · <span class="highlight-text">1+ year</span> as Vice Principal.</li>
+                        <li><span class="highlight-text">3+ years</span> as Head of Department · <span class="highlight-text">1+ year</span> as Vice Principal · <span class="highlight-text">1+ year</span> as Associate Professor.</li>
                         <li><span class="highlight-text">7+ years</span> in Web, Desktop &amp; Android App Development, Project Execution.</li>
                         <li><span class="highlight-text">3+ years</span> as Technical Director &amp; Project Leader at IT Company.</li>
-                        <li><span class="highlight-text">9+ years</span> research experience · <span class="highlight-text">14+</span> research papers in Scopus, Web of Science &amp; Springer.</li>
+                        <li><span class="highlight-text">9+ years</span> research experience · <span class="highlight-text">15+</span> research papers in Scopus, Web of Science &amp; Springer.</li>
                         <li><span class="highlight-text">Wipro Certified Faculty (WCF)</span> – trained <span class="highlight-text">200+</span> students for placement.</li>
                         <li><span class="highlight-text">13+</span> training programmes for faculty &amp; <span class="highlight-text">15+</span> workshops for students.</li>
                         <li>Proficient in C#.NET, ASP.NET Core, Python, PHP, Java, Spring MVC, Android (Kotlin), and more.</li>
+                        <li><span class="highlight-text">NPTEL Discipline Star</span> – April 2026.</li>
                     </ul>
                 </div>
                 <div class="quick-info">
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>
-                        <div><div class="label">Email</div><div class="value">somwanshi1234@gmail.com</div></div>
+                        <div><div class="label">Email</div><div class="value">drs.scos@jspmuni.ac.in</div></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div><div class="label">Alternate</div><div class="value">somwanshi1234@gmail.com</div></div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
@@ -1144,7 +1149,7 @@
                     </div>
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <div><div class="label">Location</div><div class="value">Latur, Maharashtra, India</div></div>
+                        <div><div class="label">Location</div><div class="value">Pune, Maharashtra, India</div></div>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-calendar-alt"></i>
@@ -1152,7 +1157,7 @@
                     </div>
                     <div class="info-item">
                         <i class="fas fa-university"></i>
-                        <div><div class="label">Current Role</div><div class="value">Vice Principal &amp; Assistant Professor, COCSIT Latur</div></div>
+                        <div><div class="label">Current Role</div><div class="value">Associate Professor, JSPM University</div></div>
                     </div>
                 </div>
             </div>
@@ -1169,10 +1174,18 @@
             </div>
             <div class="timeline">
 
+                <!-- Newest first -->
                 <div class="timeline-item">
-                    <div class="company">College of Computer Science &amp; IT (COCSIT), Latur</div>
+                    <div class="company">JSPM University, Pune</div>
+                    <div class="role">Associate Professor</div>
+                    <div class="period">Oct 2025 – Present</div>
+                    <div class="desc">Department of Computer Science and Application, School of Computational Sciences.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="company">COCSIT, Latur</div>
                     <div class="role">Vice Principal &amp; Assistant Professor</div>
-                    <div class="period">July 2024 – Present</div>
+                    <div class="period">July 2024 – Oct 2025</div>
                     <div class="desc">Leading academic administration, faculty mentorship, and curriculum development.</div>
                 </div>
 
@@ -1316,7 +1329,7 @@
             <div class="section-header">
                 <span class="tag">Research</span>
                 <h2>Publications <span>&amp; Research</span></h2>
-                <p>14+ research papers in Scopus, Web of Science, Springer conferences &amp; journals.</p>
+                <p>15+ research papers in Scopus, Web of Science, Springer conferences &amp; journals.</p>
             </div>
             <div class="pub-grid">
                 <div class="pub-item">
@@ -1429,9 +1442,14 @@
         <div class="container">
             <div class="section-header">
                 <span class="tag">Credentials</span>
-                <h2>Certifications <span>&amp; Training</span></h2>
+                <h2>Certifications <span>&amp; Awards</span></h2>
             </div>
             <div class="cert-grid">
+                <div class="cert-item">
+                    <i class="fas fa-star"></i>
+                    <div class="cert-name">NPTEL Discipline Star</div>
+                    <div class="cert-org">NPTEL-Swayam · April 2026</div>
+                </div>
                 <div class="cert-item">
                     <i class="fas fa-certificate"></i>
                     <div class="cert-name">Wipro Certified Faculty (WCF)</div>
@@ -1456,6 +1474,11 @@
                     <i class="fas fa-link"></i>
                     <div class="cert-name">Blockchain and Its Applications</div>
                     <div class="cert-org">NPTEL · Score 66% · April 2022</div>
+                </div>
+                <div class="cert-item">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="cert-name">Exploratory Data Analytics with R</div>
+                    <div class="cert-org">NPTEL · Score 57% · April 2026</div>
                 </div>
                 <div class="cert-item">
                     <i class="fas fa-cloud"></i>
@@ -1488,11 +1511,11 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <div><div class="label">Email</div><div class="value">somwanshi1234@gmail.com</div></div>
+                        <div><div class="label">Email (JSPM)</div><div class="value">drs.scos@jspmuni.ac.in</div></div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <div><div class="label">Official Email</div><div class="value">drsomwanshi@cocsit.org.in</div></div>
+                        <div><div class="label">Personal Email</div><div class="value">somwanshi1234@gmail.com</div></div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
@@ -1500,7 +1523,7 @@
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <div><div class="label">Address</div><div class="value">COCSIT, Ambajogai Road, Latur – 413531, Maharashtra, India</div></div>
+                        <div><div class="label">Address</div><div class="value">JSPM University, Pune, Maharashtra, India</div></div>
                     </div>
                     <div class="social-links">
                         <a href="https://github.com/drsomwanshi" target="_blank"><i class="fab fa-github"></i> GitHub</a>
@@ -1559,7 +1582,6 @@
             }
         });
 
-        // Close nav on link click (mobile)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
@@ -1598,7 +1620,7 @@
             });
         });
 
-        // ---- Smooth reveal on scroll (simple) ----
+        // ---- Scroll reveal animation ----
         const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1617,7 +1639,6 @@
                 observer.observe(el);
             });
 
-        // Also observe hero stats
         document.querySelectorAll('.hero-stats .stat').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
@@ -1625,7 +1646,7 @@
             observer.observe(el);
         });
 
-        // Trigger initial check for elements in view
+        // Initial check for elements already in view
         setTimeout(() => {
             document.querySelectorAll('.timeline-item, .edu-item, .pub-item, .project-card, .skill-category, .cert-item, .summary-card, .quick-info .info-item, .contact-item, .hero-stats .stat')
                 .forEach(el => {
